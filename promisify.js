@@ -6,7 +6,7 @@ const promisify = fn => {
   return (...args) => {
     return new Promise((resolve, reject) => {
       fn.call(null, ...args, (err, data) => {
-        if (err) reject(err);
+        if (err) return reject(err);
         resolve(data);
       });
     });
